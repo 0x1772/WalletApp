@@ -1,50 +1,50 @@
-import 'dart:ffi';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:walletapp/ui/screen/sign_in.dart';
+import 'package:walletapp/util/constant.dart';
+import 'package:walletapp/util/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const WalletApp());
+  runApp(const MyApp());
 }
 
-ThemeManager _themeManager = _themeManager();
+ThemeManager _themeManager = ThemeManager();
 
-class WalletApp extends StatefulWidget {
-  const WalletApp({key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  State<WalletApp> createState() => _WalletAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _WalletAppState extends State<WalletApp> {
+class _MyAppState extends State<MyApp> {
   @override
-  Void initState() {
+  void initState() {
     _themeManager.addListener(themeListener);
     super.initState();
   }
-}
 
   @override
-void dispose() {
-  _themeManager.removeListener(themeListeer);
-  super.dispose();
-}
-
-themeListener() {
-  if (mounted) {
-    setState(() {});
+  void dispose() {
+    _themeManager.removeListener(themeListener);
+    super.dispose();
   }
-}
+
+  themeListener() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WalletApp',
+      title: 'Flutter Wallet App',
       debugShowCheckedModeBanner: false,
-      theme: darkTheme,
-      lightTheme: ligtTheme,
-      themeMode: ThemeMode.system
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.system,
       home: const SignInPage(),
     );
   }
+}

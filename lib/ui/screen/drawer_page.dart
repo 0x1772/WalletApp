@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_wallet/ui/screen/home_page.dart';
-import 'package:flutter_wallet/util/file_path.dart';
+import 'package:walletapp/ui/screen/home_page.dart';
+import 'package:walletapp/util/file_path.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
