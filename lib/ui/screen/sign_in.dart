@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_wallet/ui/screen/drawer_page.dart';
+import 'package:flutter_wallet/util/file_path.dart';
 import 'package:intl/intl.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
-  @override
-  Widget build(BuildContext context) {}
+  _SignInPageState createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
@@ -23,16 +20,17 @@ class _SignInPageState extends State<SignInPage> {
     return Material(
       color: Theme.of(context).backgroundColor,
       child: SafeArea(
-          child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: SvgPicture.asset(mainBanner),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SvgPicture.asset(mainBanner),
+              ),
             ),
-          )
-        Expanded(
+            Expanded(
               flex: 2,
               child: Padding(
                 padding: const EdgeInsets.all(18),
@@ -52,7 +50,7 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-    Widget _topContent() {
+  Widget _topContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
